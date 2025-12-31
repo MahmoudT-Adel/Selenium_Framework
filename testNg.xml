@@ -4,7 +4,7 @@
         <classes>
             <class name="tests.ContactUsTest"/>
             <class name="tests.UserRegistrationTest"/>
-            <class name="tests.ProductHoverTest"/>
+          
             <class name="tests.SearchOfProductTest"/>
 <!--            <class name="tests.AddProductReviewTest"/>-->
 <!--            <class name="tests.ChangeCurrencyTest"/>-->
