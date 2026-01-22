@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="D:/testGitHub/Selenium_Framework/testNg.xml">
-        <classes/>
+<suite name="Regression Test" thread-count="2" parallel="tests">
+    <test   name="Chrome Regression Test">
+        <parameter name="browser" value="chrome"/>
+<!--        <classes>-->
+<!--                <class name="tests.UserRegistrationWithGrid"/>-->
+<!--        </classes>-->
+        <classes>
+            <class name="tests.SearchOfProductTest"/>
+        </classes>
+    </test>
+
+    <test   name="Firefox AddToCart Test">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.AddToCartTest"/>
+        </classes>
     </test>
 </suite>
