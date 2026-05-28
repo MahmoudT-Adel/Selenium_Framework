@@ -11,7 +11,7 @@ public class ComparePage extends PageBase{
         super(driver);
     }
 
-    @FindBy(xpath ="//*[@id=\"main\"]/div/div[2]/div/div[1]/h1")
+    @FindBy(xpath ="//h1[text()='Compare products']")
     public WebElement PageTitle;
     @FindBy(css = "a.clear-list")
     public  WebElement ClearBtn;

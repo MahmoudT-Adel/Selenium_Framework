@@ -1,8 +1,13 @@
 package tests;
 
 import Pages.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class AddProductReviewTest extends  TestBase{
 
@@ -13,7 +18,7 @@ public class AddProductReviewTest extends  TestBase{
     SearchProductPage searchObj;
     HomePage homeObject;
     UserRegistration userRegistrationObj;
-    String Email ="Mahmoud12200@gmail.com";
+    String Email ="MahmoudAdelTaha90@gmail.com";
     String ProductName = "Apple MacBook Pro";
 
     //User Can Register.....
@@ -40,10 +45,13 @@ public class AddProductReviewTest extends  TestBase{
     @Test(priority = 3)
     public  void UserCanAddReview(){
         productDetailsObj = new ProductPageDetails(driver);
-        productPageReviewObj =new ProductPageReview(driver);
         productDetailsObj.OpenPageOfAddReview();
+        productPageReviewObj = new ProductPageReview(driver);
         productPageReviewObj.UserCanAddReview(TitleOfReview , TextOfReview);
+        productPageReviewObj.ratingOfProduct.click();
+        productPageReviewObj.addBtn.click();
         Assert.assertTrue(productPageReviewObj.successfullyAdded.getText().contains("Product review is successfully added."));
+        productPageReviewObj.closeMassage.click();
     }
 
     @Test(priority = 4)

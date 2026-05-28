@@ -4,13 +4,19 @@ import Pages.CheckOutPage;
 import Pages.ProductPageDetails;
 import Pages.SearchProductPage;
 import Pages.ShoppingCart;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class RegisterUserCheckOutTest extends  TestBase{
     String ProductName = "Apple MacBook Pro";
     String FirstName = "Mahmoud";
     String LastName = "Adel";
-    String Email = "Apple4@gmail.com";
+    String Email = "Apple1550@gmail.com";
     String City = "Egypt";
     String Address="3 Of Any";
     String code ="235";
@@ -36,8 +42,13 @@ public class RegisterUserCheckOutTest extends  TestBase{
 
     }
     @Test(priority = 3)
-    public  void UserCanOpenShoppingCartPage(){
-        productDetails.OpenPageOfShopping();
+    public  void UserCanOpenShoppingCartPage() throws InterruptedException{
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement cartLink = wait.until(ExpectedConditions
+                .visibilityOfElementLocated(By.cssSelector("div.bar-notification.success a[href='/cart']")));
+        cartLink.click();
+//        Thread.sleep(3000);
+//        productDetails.OpenPageOfShopping();
     }
 
 
@@ -63,6 +74,7 @@ public class RegisterUserCheckOutTest extends  TestBase{
 
 //    @Test(priority = 7)
 //    public void EndOCheckOut(){
+//        checkOutPageObj = new CheckOutPage(driver);
 //        checkOutPageObj.ChooseShippingMethod();
 //    }
 }

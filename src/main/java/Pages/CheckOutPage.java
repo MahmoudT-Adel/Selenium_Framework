@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,7 @@ public class CheckOutPage extends  PageBase{
 public CheckOutPage(WebDriver driver){
     super(driver);
 }
+
     JavascriptExecutor js = (JavascriptExecutor) driver;
     @FindBy(css = "h1")
     WebElement titleOfPage;
@@ -42,13 +44,13 @@ public CheckOutPage(WebDriver driver){
    @FindBy(xpath = "//*[@id=\"billing-buttons-container\"]/button[2]")
    WebElement BtnContinue;
 
-   @FindBy(xpath = "//*[@id=\"shippingoption_0\"]")
+   @FindBy(name = "shippingoption")
    WebElement ShippingOption;
 
-   @FindBy(xpath = "//*[@id=\"shipping-method-buttons-container\"]/button")
-   WebElement ShippingMethodBtnNextStep;
-
-   @FindBy(xpath = "//*[@id=\"paymentmethod_0\"]")
+    @FindBy(css = "button-1 shipping-method-next-step-button")
+    WebElement ShippingMethodBtnNextStep;
+//WebElement ShippingMethodBtnNextStep = driver.findElement(By.cssSelector("button-1 shipping-method-next-step-button"));
+//   @FindBy(xpath = "//*[@id=\"paymentmethod_0\"]")
    WebElement paymentMethodOption;
 
    @FindBy(xpath = "//*[@id=\"payment-info-buttons-container\"]/button")
@@ -115,14 +117,14 @@ public CheckOutPage(WebDriver driver){
 //        System.out.println(CountryId.getText());
 //    }
 
-    public void ChooseShippingMethod(){
-       ClickButton(ShippingOption);
-       ClickButton(ShippingMethodBtnNextStep);
-       ClickButton(paymentMethodOption);
-       ClickButton(paymentInfoNextStepButton);
-       ClickButton(btnConfirm);
-       ClickButton(orderCompletedContinueBtn);
-    }
+//    public void ChooseShippingMethod(){
+//       ClickButton(ShippingOption);
+//       ClickButton(ShippingMethodBtnNextStep);
+//       ClickButton(paymentMethodOption);
+//       ClickButton(paymentInfoNextStepButton);
+//       ClickButton(btnConfirm);
+//       ClickButton(orderCompletedContinueBtn);
+//    }
 
 
 }

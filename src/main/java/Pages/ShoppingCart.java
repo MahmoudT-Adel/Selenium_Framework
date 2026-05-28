@@ -11,7 +11,7 @@ public class ShoppingCart extends PageBase{
         super(driver);
     }
 
-    @FindBy(xpath = "//*[@id=\"quantity-up-30\"]")
+    @FindBy( css ="div[id^='quantity-up-']")
     WebElement UpQuantity;
 
     @FindBy(css = "span.product-unit-price")

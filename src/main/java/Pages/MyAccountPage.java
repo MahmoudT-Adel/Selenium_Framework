@@ -8,28 +8,30 @@ public class MyAccountPage extends  PageBase{
     public  MyAccountPage (WebDriver driver){
         super(driver);
     }
-    @FindBy(linkText = "Change password")
+    @FindBy(css = "a[href='/customer/changepassword']")
     WebElement ChangePassBtn;
     @FindBy(id = "OldPassword")
-    WebElement oldPasswordTxt;
+     public WebElement oldPasswordTxt;
 
     @FindBy(id = "NewPassword")
     WebElement newPasswordTxt;
 
 
-    @FindBy(id = "ConfirmPassword")
+    @FindBy(id = "ConfirmNewPassword")
     WebElement ConfirmPasswordTxt;
 
-    @FindBy(css = "input.button-1.change-password-button")
+    @FindBy(css = "button.change-password-button")
     WebElement changePassBtn;
-    @FindBy(css = "input.content")
+    @FindBy(css = "div.bar-notification.success p.content")
     public  WebElement divResult;
+    @FindBy(css = "div.bar-notification.success span.close")
+     public WebElement divResultClose;
 
     public  void OpenChangePassPage(){
         ClickButton(ChangePassBtn);
     }
 
-    public void ChangePassword(String OldPassword , String NewPassword){
+    public void ChangePassword(String OldPassword , String NewPassword  ){
         SendText(oldPasswordTxt , OldPassword);
         SendText(newPasswordTxt , NewPassword);
         SendText(ConfirmPasswordTxt , NewPassword);

@@ -23,7 +23,8 @@ public class CompareBetweenProductTest extends TestBase{
 
         searchObj.SearchOfProduct(SearchOfSecondProduct);
         productDetails.addToCompare();
-        driver.navigate().to("https://demo.nopcommerce.com/compareproducts");
+      //  driver.navigate().to("https://demo.nopcommerce.com/compareproducts");
+        driver.navigate().to("http://localhost:5000/compareproducts");
     }
 
     @Test(priority = 2 )
@@ -34,9 +35,10 @@ public class CompareBetweenProductTest extends TestBase{
         System.out.println(comparePageObj.PageTitle);
     }
 
-//    @Test(priority = 3)
-//    public void UserCanClearAllProducts(){
-//        comparePageObj.UserCanClearProduct();
-//        Assert.assertTrue(comparePageObj.noData.getText().contains("You have no items to compare."));
-//    }
+    @Test(priority = 3)
+    public void UserCanClearAllProducts(){
+        comparePageObj = new ComparePage(driver);
+        comparePageObj.UserCanClearProduct();
+        Assert.assertTrue(comparePageObj.noData.getText().contains("You have no items to compare."));
+    }
 }

@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,13 +19,16 @@ public class ProductPageDetails extends  PageBase{
     @FindBy(id="price-value-4")
     public WebElement productPrice;
 
-    @FindBy(xpath = "//*[@id=\"product-details-form\"]/div/div[1]/div[2]/div[3]/div[3]/a")
+    @FindBy(css = ("a[href='#addreview']"))
     WebElement addReview;
 
     @FindBy(id = "add-to-wishlist-button-4")
     WebElement AddWishList;
 
-    @FindBy(xpath = "/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[3]/a")
+    @FindBy(xpath = "div.bar-notification.success span.close")
+    WebElement CloseSuccessMessage;
+
+    @FindBy(xpath = "//a[@href='/wishlist']")
     WebElement OpenPageOfWishList;
 
     @FindBy(css = "button.button-2.add-to-compare-list-button")
@@ -36,11 +40,11 @@ public class ProductPageDetails extends  PageBase{
     @FindBy(id = "add-to-cart-button-4")
     WebElement addToCartBtn;
 
-    @FindBy(xpath = "//*[@id=\"bar-notification\"]/div/span")
-    WebElement CloseMessageOfAddToCard;
+    @FindBy(xpath = "//div[@id='bar-notification']//span[@class='close']")
+    public   WebElement CloseMessageOfAddToCard;
 
-    @FindBy(xpath ="//*[@id=\"topcartlink\"]/a")
-    WebElement ShoppingLink;
+    @FindBy(id = "topcartlink")
+     public  WebElement ShoppingLink;
 
     public  void OpenSendEmailToFriend(){
         ClickButton(sendEmail);
@@ -51,6 +55,7 @@ public class ProductPageDetails extends  PageBase{
     }
 
     public void AddProductToWishList(){
+
         ClickButton(AddWishList);
     }
 
@@ -67,10 +72,13 @@ public class ProductPageDetails extends  PageBase{
         ClickButton(addToCartBtn);
     }
 
-//    public void  CloseTheMessageOfAddProduct(){
-//        ClickButton(CloseMessageOfAddToCard);
-//    }
+    public void  CloseTheMessageOfAddProduct(){
+        ClickButton(CloseMessageOfAddToCard);
+    }
 
+    public void setCloseMessageOfAddToCard(){
+        ClickButton(CloseMessageOfAddToCard);
+    }
     public void  OpenPageOfShopping(){
         ClickButton(ShoppingLink);
     }

@@ -8,4 +8,4 @@ Feature: User Registration
     Then : The registratoin page is displayed Successfully
 Examples:
       | firstName | lastName | email | password|
-      | ahmed  |  mohammed | ahmed43@gmail.com | 12234|
+      | ahmed  |  mohammed | ahmed430@gmail.com | 12234|

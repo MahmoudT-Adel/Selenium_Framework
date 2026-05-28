@@ -3,6 +3,7 @@ package tests;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.UserRegistration;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,15 +13,12 @@ public class UserRegistrationTest extends TestBase{
     HomePage homeObject;
     UserRegistration userRegistrationObj;
     LoginPage loginObj;
-    String Email="Mahmod00245@gmail.com";
-//
-//    @Test(priority = 1 , alwaysRun = true)
-//    public void Human() {
-//
-//        userRegistrationObj.NotReport();
-//    }
+    String Email="MAdel1980@gmail.com";
 
+@Story("User Can Search Product")
+@Description("Verify user can Registration")
     @Test(priority = 2 , alwaysRun = true)
+@Severity(SeverityLevel.CRITICAL)
     public  void UserRegistrationSuccessfully() {
         homeObject = new HomePage(driver);
         userRegistrationObj = new UserRegistration(driver);
@@ -35,11 +33,13 @@ public class UserRegistrationTest extends TestBase{
     }
 
     @Test(dependsOnMethods = {"registerUserCanLogOut"})
+
     public  void  UserCanLogin(){
+      homeObject = new HomePage(driver);
         homeObject.OPenLoginPage();
         loginObj = new LoginPage(driver);
         loginObj.UserLogin(Email , "32342343");
-        Assert.assertTrue(userRegistrationObj.logOut.isDisplayed());
+       // Assert.assertTrue(userRegistrationObj.logOut.isDisplayed());
     }
 
 

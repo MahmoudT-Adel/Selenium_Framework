@@ -15,6 +15,7 @@ public class E2ETests extends TestBase {
     ProductPageDetails productDetails;
     AddToCartTest  AddToCartTestPage;
     RegisterUserCheckOutTest RegisterUserCheckOutTestPage;
+
     @When(":  he search for {string}")
     public void he_search_for(String nameOfProduct) {
        searchObj = new SearchProductPage(driver);
@@ -28,7 +29,8 @@ public class E2ETests extends TestBase {
         productDetails = new ProductPageDetails(driver);
         AddToCartTestPage = new AddToCartTest();
         productDetails.AddToCart();
-        driver.navigate().to("http://demo.nopcommerce.com/" + "cart");
+      //  driver.navigate().to("http://demo.nopcommerce.com/" + "cart");
+        driver.navigate().to("http://localhost:5000/" + "cart");
     }
     @When(": move to checkout cart and enter personal details on checkout page and place the order")
     public void move_to_checkout_cart_and_enter_personal_details_on_checkout_page_and_place_the_order() {

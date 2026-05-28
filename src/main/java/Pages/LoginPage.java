@@ -10,16 +10,16 @@ public class LoginPage extends  PageBase{
         super(driver);
     }
 
-    @FindBy(id ="Email")
+    @FindBy(css ="input.email")
     WebElement EmailTxtBox;
     @FindBy(id="Password")
     WebElement PasswordTxt;
-    @FindBy(css="input.button-1.login-button")
-    WebElement LoginBtn;
+    @FindBy(xpath="//button[@class='button-1 login-button']")
+   public   WebElement LoginBtn;
 
     public void UserLogin(String Email ,String Password ){
         SendText(EmailTxtBox , Email);
         SendText(PasswordTxt , Password);
-ClickButton(LoginBtn);
+        ClickButton(LoginBtn);
     }
 }

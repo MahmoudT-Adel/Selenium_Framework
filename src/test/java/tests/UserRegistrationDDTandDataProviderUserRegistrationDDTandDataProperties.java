@@ -34,18 +34,15 @@ public class UserRegistrationDDTandDataProviderUserRegistrationDDTandDataPropert
         userRegistrationObj.LogOutLink();
     }
 
-//    @Test(dependsOnMethods = {"UserRegistrationSuccessfully"})
-//    public void registerUserCanLogOut(){
-//        userRegistrationObj.LogOutLink();
-//    }
-//
-//    @Test(dependsOnMethods = {"registerUserCanLogOut"} , dataProvider = "testData")
-//    public  void  UserCanLogin(String email , String password){
-//        homeObject.OPenLoginPage();
-//        loginObj = new LoginPage(driver);
-//        loginObj.UserLogin(email ,password );
-//        Assert.assertTrue(userRegistrationObj.logOut.isDisplayed());
-//    }
+
+
+    @Test(dependsOnMethods = {"UserRegistrationSuccessfully"})
+    public  void  UserCanLogin(){
+        HomePage homeObject = new HomePage(driver);
+        homeObject.OPenLoginPage();
+        loginObj.UserLogin(email ,password );
+        Assert.assertTrue(userRegistrationObj.logOut.isDisplayed());
+    }
 
 
 }

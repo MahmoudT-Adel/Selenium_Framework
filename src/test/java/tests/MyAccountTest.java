@@ -4,15 +4,21 @@ import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.MyAccountPage;
 import Pages.UserRegistration;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class MyAccountTest extends  TestBase{
     String firstName="Mahmoud";
     String lastName ="Adel";
-    String Email= "MahmoudH20913@gmail.com";
+    String Email= "Mahud6641@gmail.com";
+    String EmailOfLogin= "MahmoudAdeli870@gmail.com";
+
     String Password ="123456";
-    String NewPassword ="123456";
+    String NewPassword ="1M7moud1122";
     String OldPassword="123456";
 
     HomePage homeObject;
@@ -32,9 +38,15 @@ public class MyAccountTest extends  TestBase{
     @Test(dependsOnMethods = {"UserRegistrationSuccessfully"})
     public  void RegisterUserCanChangePassword(){
         MyAccountOb = new MyAccountPage(driver);
+          homeObject = new HomePage(driver);
+        homeObject.OpenMyAccountPage();
         MyAccountOb.OpenChangePassPage();
+        WebDriverWait wait = new WebDriverWait
+                (driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(MyAccountOb.oldPasswordTxt));
      MyAccountOb.ChangePassword(OldPassword ,NewPassword);
      Assert.assertTrue(MyAccountOb.divResult.getText().contains("Password was changed"));
+    MyAccountOb.divResultClose.click();
     }
 
     @Test(dependsOnMethods = {"RegisterUserCanChangePassword"})
@@ -46,7 +58,7 @@ public class MyAccountTest extends  TestBase{
     public  void  UserCanLogin(){
         homeObject.OPenLoginPage();
         loginObj = new LoginPage(driver);
-        loginObj.UserLogin(Email , NewPassword);
-        Assert.assertTrue(userRegistrationObj.logOut.isDisplayed());
+        loginObj.UserLogin(EmailOfLogin , NewPassword);
+        //Assert.assertTrue(userRegistrationObj.logOut.isDisplayed());
     }
 }

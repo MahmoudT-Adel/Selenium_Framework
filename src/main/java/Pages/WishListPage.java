@@ -15,7 +15,7 @@ public class WishListPage extends PageBase{
     @FindBy(id = "updatecart")
     WebElement updateBtn;
 
-    @FindBy(xpath = "//*[@id=\"main\"]/div/div/div/div[2]/div[1]/form/div[1]/table/tbody/tr/td[8]/button")
+    @FindBy(xpath = "//input[@name='removefromcart']")
     WebElement removeProduct;
 
     @FindBy(xpath ="//*[@id=\"main\"]/div/div/div/div[2]/div")

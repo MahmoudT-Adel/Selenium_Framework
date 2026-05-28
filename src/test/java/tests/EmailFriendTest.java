@@ -11,8 +11,8 @@ public class EmailFriendTest extends  TestBase{
     HomePage homeObject;
     UserRegistration userRegistrationObj;
     EmailFriendPage sendEmailToYourFriendObj;
-    String Email="Mahmou1043@gmail.com";
-    String FriendsEmail = "Ahmed00033@gmail.com";
+    String Email="Mahmoudf@gmail.com";
+    String FriendsEmail = "Ahmed0112200@gmail.com";
     String SendMassage ="Hello My Friend";
     String ProductName = "Apple MacBook Pro";
 
@@ -44,6 +44,7 @@ public class EmailFriendTest extends  TestBase{
         productDetails.OpenSendEmailToFriend();
         sendEmailToYourFriendObj = new EmailFriendPage(driver);
         sendEmailToYourFriendObj.UserCanSendEmailToHerFriend(FriendsEmail , SendMassage );
+        sendEmailToYourFriendObj.sendEmailBtn.click();;
       Assert.assertTrue(sendEmailToYourFriendObj.successMassageNotification.getText().contains("Your message has been sent."));
     }
 

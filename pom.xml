@@ -35,6 +35,7 @@
             <artifactId>selenium-java</artifactId>
             <version>4.23.0</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 <!--        <dependency>-->
 <!--            <groupId>com.aventstack</groupId>-->
@@ -61,15 +62,11 @@
             <version>7.33.0</version>
         </dependency>
 
-
-
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>7.33.0</version>
         </dependency>
-
 
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -87,8 +84,8 @@
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>7.33.0</version>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>7.14.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -99,36 +96,60 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Source: https://mvnrepository.com/artifact/io.qameta.allure/allure-junit4 -->
+        <!-- Source: https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5 -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.24.0</version>
+            <!-- NO scope here ✅ -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.25.1</version>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
 
 
-<!--    <build>-->
-<!--        <pluginManagement>-->
-<!--            <plugins>-->
-<!--                <plugin>-->
-<!--                    <groupId>org.apache.maven.plugins</groupId>-->
-<!--                    <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                    <version>3.14.0</version>-->
-<!--                    <configuration>-->
-<!--                        &lt;!&ndash; put your configurations here &ndash;&gt;-->
-<!--                        <source>24</source>-->
-<!--                        <target>24</target>-->
-<!--                    </configuration>-->
-<!--                </plugin>-->
+    <build>
+        <plugins>
+            <!-- Surefire Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
 
-<!--                <plugin>-->
-<!--                    <groupId>org.apache.maven.plugins</groupId>-->
-<!--                    <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                    <version>3.5.4</version>-->
-<!--                    <configuration>-->
-<!--                        <suiteXmlFiles>-->
-<!--                            <suiteXmlFile>testNg.xml</suiteXmlFile>-->
-<!--                        </suiteXmlFiles>-->
-<!--                    </configuration>-->
-<!--                </plugin>-->
+                </configuration>
+            </plugin>
+            <!-- Allure Maven Plugin -->
 
-<!--            </plugins>-->
-<!--        </pluginManagement>-->
-<!--    </build>-->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
+                <configuration>
+                    <reportVersion>2.24.0</reportVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testNg.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

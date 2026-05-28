@@ -10,7 +10,7 @@ public class ContactUsTest  extends  TestBase{
     ContactUs contactUsObj;
 
     String fullName= "MahmoudAdel";
-    String Email="MA7097099@gmail.com";
+    String Email="MAhmoudAtAHA03@gmail.com";
     String Enquire ="Hello Admin , This Is Test";
 
     @Test

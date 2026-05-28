@@ -31,13 +31,13 @@ super(driver);
 WebElement notReport;
 
 
-public  @FindBy(css = "div.result")
+public  @FindBy(xpath = "//div[contains(text(),'Your registration completed')]")
 WebElement messageSuccessful;
 
 
 
 
- @FindBy(xpath= "/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")
+ @FindBy(xpath= "//a[@href='/logout']")
    public   WebElement logOut;
 
 @FindBy(xpath = "//*[@id=\"bar-notification\"]/div/span")

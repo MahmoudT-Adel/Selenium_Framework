@@ -17,7 +17,7 @@ public class ContactUs extends  PageBase{
     @FindBy(id = "Enquiry")
      WebElement enquiry;
 
-    @FindBy(xpath= "//*[@id=\"main\"]/div/div/div/div[2]/form/div[2]/button")
+    @FindBy(css= "button.contact-us-button")
      WebElement btnSubmit;
     @FindBy(css = "div.result")
      public WebElement successMessage;

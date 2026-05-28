@@ -11,6 +11,8 @@ public class SearchProductPage extends PageBase{
         super(driver);
     }
 
+
+
     @FindBy(id="small-searchterms")
     WebElement SearchInput ;
 

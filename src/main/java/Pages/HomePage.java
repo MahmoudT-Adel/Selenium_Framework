@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import java.time.Duration;
 
 
 public class HomePage extends  PageBase{
@@ -29,12 +30,13 @@ public class HomePage extends  PageBase{
     @FindBy(id = "customerCurrency")
     WebElement currencyList;
 
-    @FindBy(xpath ="/html/body/div[6]/div[2]/ul[1]/li[1]/a")
+    @FindBy(css ="a[href='/computers']")
     WebElement ComputerMenu;
 
-    @FindBy(xpath ="/html/body/div[6]/div[2]/ul[1]/li[1]/ul/li[2]/a")
+    @FindBy(css =" a[href='/notebooks']")
     WebElement NoteMenu;
-
+    @FindBy(css = "a.ico-account")
+    WebElement MyAccountBtn;
 
     public void OPenRegistrationPage() {
     registerLink.click();
@@ -56,7 +58,13 @@ public class HomePage extends  PageBase{
 
     public void OpenNoteBookPage(){
         action.moveToElement(ComputerMenu)
+                .pause(Duration.ofSeconds(5)) // wait for menu to appear
                 .moveToElement(NoteMenu)
-                .click().build().perform();
+                .click()
+                .perform();
+    }
+
+    public void OpenMyAccountPage(){
+        ClickButton(MyAccountBtn);
     }
 }

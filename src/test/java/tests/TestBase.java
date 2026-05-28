@@ -7,50 +7,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.util.Map;
 
-public class TestBase  extends AbstractTestNGCucumberTests {
-    public static WebDriver driver;
+public class TestBase   {
+    public  WebDriver driver;
 
-
-    @BeforeSuite
+//Before start run thih file C:\Users\mahmo\Downloads\nopCommerce_4.90.4_NoSource_win_x64
+    @BeforeClass
     public void setUp() {
         driver = new ChromeDriver();
-        driver.navigate().to("https://demo.nopcommerce.com/");
+        driver.manage().window().maximize();
+        driver.navigate().to(" http://localhost:5000");
         ((JavascriptExecutor) driver).executeScript(
                 "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
         );
     }
 
-//    @BeforeSuite
-//    public void setUp() {
-//
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--disable-blink-features=AutomationControlled");
-//        options.addArguments("--start-maximized");
-//        options.addArguments(
-//                "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
-//                        "AppleWebKit/537.36 (KHTML, like Gecko) " +
-//                        "Chrome/120.0.0.0 Safari/537.36"
-//        );
-//        driver = new ChromeDriver(options);
-//
-//        // Inject BEFORE page load
-//        ((ChromeDriver) driver).executeCdpCommand(
-//                "Page.addScriptToEvaluateOnNewDocument",
-//                Map.of(
-//                        "source",
-//                        "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
-//                )
-//        );
-//
-//        driver.get("https://demo.nopcommerce.com/");
-//    }
 
 
 
@@ -66,9 +41,9 @@ public class TestBase  extends AbstractTestNGCucumberTests {
 
     }
 
-        @AfterSuite
+        @AfterClass
     public void CleanUp(){
-        driver.close();
+        driver.quit();
 
     }
 

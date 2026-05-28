@@ -17,10 +17,10 @@ public class ProductPageReview extends  PageBase{
     WebElement txtOfReview;
 
     @FindBy(id = "addproductrating_5")
-    WebElement ratingOfProduct;
+    public WebElement ratingOfProduct;
 
     @FindBy(id="add-review")
-    WebElement addBtn;
+    public WebElement addBtn;
 
     @FindBy(xpath = "//*[@id=\"bar-notification\"]/div/p")
     public WebElement successfullyAdded;
@@ -29,10 +29,12 @@ public class ProductPageReview extends  PageBase{
     public WebElement closeMassage;
 
     public void UserCanAddReview(String TitleOfReview , String TextOfReview ){
+        titleOfAddReviewTxt.clear();
    SendText(titleOfAddReviewTxt, TitleOfReview);
+   txtOfReview.clear();
    SendText(txtOfReview , TextOfReview);
-   ClickButton(ratingOfProduct);
-   ClickButton(addBtn);
-   ClickButton(closeMassage);
+
     }
+
+
 }
